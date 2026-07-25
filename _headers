@@ -20,3 +20,23 @@
 
 /*.html
   Cache-Control: no-cache
+
+# Pages rebond auth (confirm.html / reset-password.html, 2026-07-25).
+# Leur URL porte un code d'authentification a usage unique, donc :
+#   - no-store (plus strict que le no-cache des pages legales) : aucune
+#     copie de la reponse ni chez le CDN ni dans le cache du navigateur ;
+#   - X-Robots-Tag : double le <meta name="robots"> pour les crawlers qui
+#     ne lisent pas le HTML ;
+#   - Referrer-Policy : double le <meta name="referrer">, le code ne doit
+#     fuir dans aucun Referer sortant.
+# Le motif * couvre la forme sans extension (/confirm, servie par le
+# html_handling de Cloudflare) et la forme /confirm.html.
+/confirm*
+  Cache-Control: no-store
+  X-Robots-Tag: noindex, nofollow
+  Referrer-Policy: no-referrer
+
+/reset-password*
+  Cache-Control: no-store
+  X-Robots-Tag: noindex, nofollow
+  Referrer-Policy: no-referrer
