@@ -1,5 +1,5 @@
 Politique de Confidentialité — Lights On Me
-Dernière mise à jour : 6 juillet 2026
+Dernière mise à jour : 26 juillet 2026
 
 1. Qui sommes-nous
 L'application Lights On Me (ci-après "l'Application") est éditée à titre individuel par :
@@ -44,7 +44,7 @@ Exécution du contrat
 Mémoriser votre parcours et adapter les sessions
 Exécution du contrat
 Détecter des situations de détresse pour proposer des ressources
-Intérêt légitime + protection de la personne
+Intérêt légitime + protection de la personne (art. 6) ; consentement explicite au traitement de données de santé (art. 9, par. 2, point a)
 Limiter les abus (rate limiting)
 Intérêt légitime
 Améliorer l'application via des statistiques anonymes
@@ -110,7 +110,7 @@ Liées à votre compte, mêmes durées
 Preuve de consentement aux CGU et à la présente Politique
 10 ans à compter de l'acceptation, y compris après suppression du compte
 Journal de sécurité des détections de crise
-Conservé sans limite de durée, y compris après suppression du compte (catégorie + extrait de 200 caractères max + langue). Base légale : art. 9, par. 2, point h) et art. 17, par. 3, point e) du RGPD (protection des personnes, défense de droits en justice). Journal techniquement inaltérable ; suppression possible uniquement sur décision judiciaire. Vous pouvez demander la consultation des entrées qui vous concernent en écrivant à l'adresse de contact (droit d'accès, article 15 du RGPD).
+Conservé sans limite de durée, y compris après suppression du compte (catégorie + extrait de 200 caractères max + langue). Bases légales : art. 9, par. 2, point a) du RGPD (votre consentement explicite au traitement de données de santé, recueilli dans l'Application avant toute analyse et retirable à tout moment) pour l'analyse elle-même ; art. 9, par. 2, point f) combiné à l'art. 17, par. 3, point e) du RGPD (constatation, exercice ou défense d'un droit en justice) pour la conservation du journal après retrait du consentement ou suppression du compte. Journal techniquement inaltérable ; suppression possible uniquement sur décision judiciaire. Vous pouvez demander la consultation des entrées qui vous concernent en écrivant à l'adresse de contact (droit d'accès, article 15 du RGPD).
 Exception au droit à l'effacement : la trace de votre acceptation des Conditions d'utilisation et de la présente Politique est conservée dans un journal distinct et inaltérable, même après suppression de votre compte. Ce journal contient uniquement : adresse e-mail, identifiant interne (UUID), date et heure d'acceptation, version des documents acceptés, adresse IP et User-Agent. Base légale : article 17, paragraphe 3, point e) du RGPD — conservation nécessaire à la défense de droits en justice. Durée : 10 ans (prescription ordinaire en droit suisse, article 127 du Code des obligations). Le journal est techniquement inaltérable et inaccessible aux utilisateurs comme aux employés ; sa suppression n'est possible que sur décision judiciaire ou erreur manifeste documentée.
 Suspension en cas de litige : si un litige formel est en cours (plainte déposée, procédure judiciaire ou demande d'une autorité), la suppression des données concernées peut être suspendue le temps de la procédure, conformément à l'article 17, paragraphe 3, point e) du RGPD.
 
@@ -139,9 +139,9 @@ Nous mettons en œuvre les mesures suivantes pour protéger vos données :
 Aucun système n'étant infaillible, nous vous engageons à utiliser un mot de passe fort et unique.
 
 8. Détection de contenu sensible
-Pour votre sécurité, l'Application analyse le texte de vos partages (transcriptions de vos sessions vocales, textes que vous saisissez) afin de détecter des signaux de détresse aiguë (idées suicidaires, automutilation, violences subies, addictions sévères). En cas de détection :
+Cette analyse a lieu uniquement si vous y avez consenti explicitement dans l'Application (consentement distinct des présentes conditions, retirable à tout moment depuis les Paramètres). Pour votre sécurité, l'Application analyse alors le texte de vos partages (transcriptions de vos sessions vocales, textes que vous saisissez) afin de détecter des signaux de risque suicidaire ou d'automutilation. Aucune autre catégorie n'est recherchée. En cas de détection :
 	•	Au lieu d'un feedback IA, l'Application affiche un message de soutien et des ressources d'urgence vérifiées (numéros d'aide professionnelle 24/7 selon votre pays)
-	•	Une détection anonymisée est journalisée à des fins de sécurité et d'amélioration du dispositif (catégorie + extrait de 200 caractères max + langue, sans autres données identifiantes que votre identifiant interne)
+	•	Une détection est journalisée à des fins de sécurité et d'amélioration du dispositif (catégorie + extrait de 200 caractères max + langue + votre identifiant interne, qui vous rattache à cette entrée)
 Aucun contact humain externe n'est déclenché automatiquement. Vous restez seul(e) décideur(se) de la suite à donner. En cas de danger imminent, contactez immédiatement les services d'urgence (112 en Europe, 911 en Amérique du Nord, 143 La Main Tendue en Suisse).
 
 9. Mineurs

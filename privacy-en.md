@@ -1,5 +1,5 @@
 Privacy Policy — Lights On Me
-Last updated: July 6, 2026
+Last updated: July 26, 2026
 
 1. Who we are
 The Lights On Me application (the "App") is operated as a sole proprietorship by:
@@ -44,7 +44,7 @@ Performance of contract
 Remember your journey and adapt sessions
 Performance of contract
 Detect distress situations to offer support resources
-Legitimate interest + protection of the person
+Legitimate interest + protection of the person (art. 6); explicit consent to the processing of health data (art. 9(2)(a))
 Prevent abuse (rate limiting)
 Legitimate interest
 Improve the App via anonymized statistics
@@ -110,7 +110,7 @@ Linked to your account, same durations
 Proof of consent to the Terms and this Privacy Policy
 10 years from acceptance, including after account deletion
 Crisis detection safety log
-Kept without time limit, including after account deletion (category + 200-character excerpt max + language). Legal basis: Article 9(2)(h) and Article 17(3)(e) GDPR (protection of persons, defence of legal claims). The log is technically tamper-proof; deletion is only possible upon judicial decision. You can request to view the entries concerning you by writing to the contact address (right of access, Article 15 GDPR).
+Kept without time limit, including after account deletion (category + 200-character excerpt max + language). Legal bases: Article 9(2)(a) GDPR (your explicit consent to the processing of health data, collected in the App before any analysis and withdrawable at any time) for the analysis itself; Article 9(2)(f) together with Article 17(3)(e) GDPR (establishment, exercise or defence of legal claims) for keeping the log after consent withdrawal or account deletion. The log is technically tamper-proof; deletion is only possible upon judicial decision. You can request to view the entries concerning you by writing to the contact address (right of access, Article 15 GDPR).
 Exception to the right to erasure: a record of your acceptance of the Terms of Service and this Privacy Policy is preserved in a separate and tamper-proof log, including after account deletion. This log contains only: email address, internal identifier (UUID), date and time of acceptance, version of the documents accepted, IP address and User-Agent. Legal basis: Article 17(3)(e) GDPR — retention necessary for the defence of legal claims. Duration: 10 years (ordinary statute of limitations under Swiss law, Article 127 of the Code of Obligations). The log is technically tamper-proof and inaccessible to users and employees alike; deletion is only possible upon judicial decision or documented manifest error.
 Suspension in case of dispute: if a formal dispute is ongoing (filed complaint, court proceedings or a request from an authority), deletion of the data concerned may be suspended for the duration of the procedure, in accordance with Article 17(3)(e) GDPR.
 
@@ -139,9 +139,9 @@ We implement the following measures to protect your data:
 No system is infallible; we encourage you to use a strong, unique password.
 
 8. Sensitive content detection
-For your safety, the App analyzes the text of what you share (transcripts of your voice sessions, text you type) to detect signs of acute distress (suicidal ideation, self-harm, abuse, severe addictions). When detected:
+This analysis only takes place if you have explicitly consented to it in the App (a consent separate from these terms, withdrawable at any time from Settings). For your safety, the App then analyzes the text of what you share (transcripts of your voice sessions, text you type) to detect signs of suicide risk or self-harm. No other category is searched for. When detected:
 	•	Instead of an AI feedback, the App displays a support message and verified emergency resources (24/7 professional helplines for your country)
-	•	An anonymized detection event is logged for safety and system improvement (category + 200-character extract max + language, with no identifying data other than your internal user ID)
+	•	A detection event is logged for safety and system improvement (category + 200-character extract max + language + your internal user ID, which links you to that entry)
 No external human contact is automatically triggered. You remain the sole decision-maker. In case of imminent danger, contact emergency services immediately (112 in Europe, 911 in North America, 143 La Main Tendue in Switzerland, 988 in the US).
 
 9. Minors
