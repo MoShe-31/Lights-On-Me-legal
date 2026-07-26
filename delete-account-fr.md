@@ -39,11 +39,11 @@ Toutes les données liées à votre compte sont effacées immédiatement et déf
 Conformément à notre [Politique de Confidentialité](https://lightsonme.app/privacy-fr.html) (section 5) :
 
 - **Preuve d'acceptation des CGU et de la Politique de Confidentialité** : conservée 10 ans (article 17, paragraphe 3, point e) du RGPD ; article 127 du Code des obligations suisse).
-- **Journal de sécurité des détections de crise** : conservé sans limite de durée (articles 9(2)(h) et 17(3)(e) du RGPD). Il contient uniquement : catégorie, extrait de 200 caractères maximum, langue.
+- **Journal de sécurité des détections de crise** : conservé sans limite de durée (articles 9(2)(f) et 17(3)(e) du RGPD, défense d'un droit en justice ; l'analyse elle-même repose sur votre consentement explicite, article 9(2)(a)). Il contient uniquement : catégorie, extrait de 200 caractères maximum, langue et votre identifiant interne.
 - **Litige formel en cours** : la suppression des données concernées peut être temporairement suspendue le temps de la procédure (article 17(3)(e) du RGPD).
 
 ---
 
 Pour toute question : **contact@lightsonme.app**
 
-Dernière mise à jour : 6 juillet 2026
+Dernière mise à jour : 26 juillet 2026
