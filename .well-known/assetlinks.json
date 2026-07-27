@@ -1,0 +1,14 @@
+[
+  {
+    "relation": [
+      "delegate_permission/common.handle_all_urls"
+    ],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "app.x30.coachme",
+      "sha256_cert_fingerprints": [
+        "5F:7C:10:92:34:10:28:13:C5:4C:55:CC:E7:1B:F2:81:A3:99:F2:B6:38:0A:29:4A:1F:61:20:73:73:2F:72:C6"
+      ]
+    }
+  }
+]

@@ -1,0 +1,21 @@
+{
+  "applinks": {
+    "details": [
+      {
+        "appIDs": [
+          "9FSR6Q5VHG.app.x30.coachme"
+        ],
+        "components": [
+          {
+            "/": "/confirm*",
+            "comment": "Email confirmation bounce page"
+          },
+          {
+            "/": "/reset-password*",
+            "comment": "Password reset bounce page"
+          }
+        ]
+      }
+    ]
+  }
+}

@@ -40,3 +40,15 @@
   Cache-Control: no-store
   X-Robots-Tag: noindex, nofollow
   Referrer-Policy: no-referrer
+
+# Universal Links / App Links (2026-07-27). Ces deux fichiers doivent sortir en
+# JSON et SANS redirection : ni iOS ni Android ne suivent une redirection pour
+# les recuperer. Le no-cache evite qu'une version fautive reste collee au CDN
+# pendant qu'on la corrige.
+/.well-known/*
+  Content-Type: application/json
+  Cache-Control: no-cache
+
+/apple-app-site-association
+  Content-Type: application/json
+  Cache-Control: no-cache
