@@ -1,5 +1,5 @@
 Privacy Policy — Lights On Me
-Last updated: July 26, 2026
+Last updated: July 27, 2026
 
 1. Who we are
 The Lights On Me application (the "App") is operated as a sole proprietorship by:
@@ -110,7 +110,7 @@ Linked to your account, same durations
 Proof of consent to the Terms and this Privacy Policy
 10 years from acceptance, including after account deletion
 Crisis detection safety log
-Kept without time limit, including after account deletion (category + 200-character excerpt max + language). Legal bases: Article 9(2)(a) GDPR (your explicit consent to the processing of health data, collected in the App before any analysis and withdrawable at any time) for the analysis itself; Article 9(2)(f) together with Article 17(3)(e) GDPR (establishment, exercise or defence of legal claims) for keeping the log after consent withdrawal or account deletion. The log is technically tamper-proof; deletion is only possible upon judicial decision. You can request to view the entries concerning you by writing to the contact address (right of access, Article 15 GDPR).
+Kept for 10 years from the detection, including after account deletion (ordinary limitation period under Swiss law, Article 127 of the Code of Obligations, same duration as the acceptance log above). The excerpt of what was said is erased after 6 months: only the record of the event remains thereafter. The entry contains the category, an excerpt of at most 200 characters of what was said (erased at 6 months), the language, your internal user ID, the session ID, the detection method, the usage mode, the date of the detection, and the flags and timestamps for the display of the support message and the emergency resources. Legal bases: Article 9(2)(a) GDPR (your explicit consent to the processing of health data, collected in the App before any analysis and withdrawable at any time) for the analysis itself; Article 9(2)(f) together with Article 17(3)(e) GDPR (establishment, exercise or defence of legal claims) for keeping the log after consent withdrawal or account deletion. The log is technically tamper-proof: no early deletion is possible before the retention period ends, other than upon judicial decision. While your account is active, these entries are included in the export of your data from the App; after account deletion, you can request to view them by writing to the contact address (right of access, Article 15 GDPR).
 Exception to the right to erasure: a record of your acceptance of the Terms of Service and this Privacy Policy is preserved in a separate and tamper-proof log, including after account deletion. This log contains only: email address, internal identifier (UUID), date and time of acceptance, version of the documents accepted, IP address and User-Agent. Legal basis: Article 17(3)(e) GDPR — retention necessary for the defence of legal claims. Duration: 10 years (ordinary statute of limitations under Swiss law, Article 127 of the Code of Obligations). The log is technically tamper-proof and inaccessible to users and employees alike; deletion is only possible upon judicial decision or documented manifest error.
 Suspension in case of dispute: if a formal dispute is ongoing (filed complaint, court proceedings or a request from an authority), deletion of the data concerned may be suspended for the duration of the procedure, in accordance with Article 17(3)(e) GDPR.
 
@@ -141,7 +141,7 @@ No system is infallible; we encourage you to use a strong, unique password.
 8. Sensitive content detection
 This analysis only takes place if you have explicitly consented to it in the App (a consent separate from these terms, withdrawable at any time from Settings). For your safety, the App then analyzes the text of what you share (transcripts of your voice sessions, text you type) to detect signs of suicide risk or self-harm. No other category is searched for. When detected:
 	•	Instead of an AI feedback, the App displays a support message and verified emergency resources (24/7 professional helplines for your country)
-	•	A detection event is logged for safety and system improvement (category + 200-character extract max + language + your internal user ID, which links you to that entry)
+	•	A detection event is logged for safety and system improvement: category, an excerpt of at most 200 characters of what was said (erased after 6 months), language, your internal user ID (which links you to that entry), session ID, detection method, usage mode, date of the detection, and the flags and timestamps for the display of the support message and the emergency resources. The entry is kept for 10 years from the detection
 No external human contact is automatically triggered. You remain the sole decision-maker. In case of imminent danger, contact emergency services immediately (112 in Europe, 911 in North America, 143 La Main Tendue in Switzerland, 988 in the US).
 
 9. Minors

@@ -39,11 +39,11 @@ All data linked to your account is erased immediately and permanently:
 In accordance with our [Privacy Policy](https://lightsonme.app/privacy-en.html) (section 5):
 
 - **Proof of acceptance of the Terms and Privacy Policy**: retained for 10 years (Article 17(3)(e) GDPR; Article 127 of the Swiss Code of Obligations).
-- **Crisis detection safety log**: retained without time limit (Articles 9(2)(f) and 17(3)(e) GDPR, defence of legal claims; the analysis itself relies on your explicit consent, Article 9(2)(a)). It contains only: category, excerpt of 200 characters maximum, language and your internal user ID.
+- **Crisis detection safety log**: retained for 10 years from the detection (Articles 9(2)(f) and 17(3)(e) GDPR, defence of legal claims; the analysis itself relies on your explicit consent, Article 9(2)(a)). The excerpt of what was said is erased after 6 months. It contains only: category, excerpt of 200 characters maximum, language, your internal user ID, the session ID, the detection method, the usage mode, the date of the detection, and the flags and timestamps for the display of the support message and the emergency resources.
 - **Ongoing formal dispute**: deletion of the data concerned may be temporarily suspended for the duration of the procedure (Article 17(3)(e) GDPR).
 
 ---
 
 For any question: **contact@lightsonme.app**
 
-Last updated: July 26, 2026
+Last updated: July 27, 2026
