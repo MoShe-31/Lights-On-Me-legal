@@ -46,4 +46,4 @@ Conformément à notre [Politique de Confidentialité](https://lightsonme.app/pr
 
 Pour toute question : **contact@lightsonme.app**
 
-Dernière mise à jour : 27 juillet 2026
+Dernière mise à jour : 28 juillet 2026

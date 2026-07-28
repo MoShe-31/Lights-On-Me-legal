@@ -1,5 +1,5 @@
 Politique de Confidentialité — Lights On Me
-Dernière mise à jour : 27 juillet 2026
+Dernière mise à jour : 28 juillet 2026
 
 1. Qui sommes-nous
 L'application Lights On Me (ci-après "l'Application") est éditée à titre individuel par :
@@ -139,7 +139,7 @@ Nous mettons en œuvre les mesures suivantes pour protéger vos données :
 Aucun système n'étant infaillible, nous vous engageons à utiliser un mot de passe fort et unique.
 
 8. Détection de contenu sensible
-Cette analyse a lieu uniquement si vous y avez consenti explicitement dans l'Application (consentement distinct des présentes conditions, retirable à tout moment depuis les Paramètres). Pour votre sécurité, l'Application analyse alors le texte de vos partages (transcriptions de vos sessions vocales, textes que vous saisissez) afin de détecter des signaux de risque suicidaire ou d'automutilation. Aucune autre catégorie n'est recherchée. En cas de détection :
+Cette analyse a lieu uniquement si vous y avez consenti explicitement dans l'Application (consentement distinct des présentes conditions, retirable à tout moment depuis les Paramètres). Pour votre sécurité, l'Application analyse alors le texte de vos partages (transcriptions de vos sessions vocales, textes que vous saisissez) afin de détecter des signaux de détresse aiguë : risque suicidaire ou automutilation, violences subies, addiction, troubles alimentaires. Les états psychotiques et dissociatifs ne sont pas recherchés. Le journal de sécurité n'enregistre pas le sujet détecté : il note seulement s'il s'agissait d'un signal de risque suicidaire ou d'une autre forme de détresse. En cas de détection :
 	•	Au lieu d'un feedback IA, l'Application affiche un message de soutien et des ressources d'urgence vérifiées (numéros d'aide professionnelle 24/7 selon votre pays)
 	•	Une détection est journalisée à des fins de sécurité et d'amélioration du dispositif : catégorie, plus aucun extrait des propos depuis le 27 juillet 2026 (les entrées antérieures en contiennent un, de 200 caractères maximum, effacé au bout de 6 mois), langue, votre identifiant interne (qui vous rattache à cette entrée), identifiant de session, méthode de détection, mode d'usage, date de la détection, indicateurs et horodatages d'affichage du message de soutien et des ressources d'urgence. L'entrée est conservée 10 ans à compter de la détection
 Aucun contact humain externe n'est déclenché automatiquement. Vous restez seul(e) décideur(se) de la suite à donner. En cas de danger imminent, contactez immédiatement les services d'urgence (112 en Europe, 911 en Amérique du Nord, 143 La Main Tendue en Suisse).

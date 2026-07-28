@@ -1,5 +1,5 @@
 Privacy Policy — Lights On Me
-Last updated: July 27, 2026
+Last updated: July 28, 2026
 
 1. Who we are
 The Lights On Me application (the "App") is operated as a sole proprietorship by:
@@ -139,7 +139,7 @@ We implement the following measures to protect your data:
 No system is infallible; we encourage you to use a strong, unique password.
 
 8. Sensitive content detection
-This analysis only takes place if you have explicitly consented to it in the App (a consent separate from these terms, withdrawable at any time from Settings). For your safety, the App then analyzes the text of what you share (transcripts of your voice sessions, text you type) to detect signs of suicide risk or self-harm. No other category is searched for. When detected:
+This analysis only takes place if you have explicitly consented to it in the App (a consent separate from these terms, withdrawable at any time from Settings). For your safety, the App then analyzes the text of what you share (transcripts of your voice sessions, text you type) to detect signs of acute distress: suicide risk or self-harm, violence suffered, addiction, eating disorders. Psychotic and dissociative states are not searched for. The safety log does not record which subject was detected: it only records whether it was a suicide-risk signal or another form of distress. When detected:
 	•	Instead of an AI feedback, the App displays a support message and verified emergency resources (24/7 professional helplines for your country)
 	•	A detection event is logged for safety and system improvement: category, no excerpt of what was said since 27 July 2026 (earlier entries contain one, of at most 200 characters, erased after 6 months), language, your internal user ID (which links you to that entry), session ID, detection method, usage mode, date of the detection, and the flags and timestamps for the display of the support message and the emergency resources. The entry is kept for 10 years from the detection
 No external human contact is automatically triggered. You remain the sole decision-maker. In case of imminent danger, contact emergency services immediately (112 in Europe, 911 in North America, 143 La Main Tendue in Switzerland, 988 in the US).
