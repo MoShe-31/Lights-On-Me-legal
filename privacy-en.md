@@ -1,5 +1,5 @@
 Privacy Policy — Lights On Me
-Last updated: July 28, 2026
+Last updated: July 31, 2026
 
 1. Who we are
 The Lights On Me application (the "App") is operated as a sole proprietorship by:
@@ -35,6 +35,15 @@ The App is currently in private beta. It provides voice-based guidance for perso
 2.6 Audio recordings
 The recordings of your voice sessions (sessions, daily compass, free talk) are transmitted temporarily for transcription, then immediately deleted once the text is obtained: they are never retained.
 Two optional features do, however, retain an audio file, because their value lies in hearing your own voice again: the voice letter you record to yourself at the start of a programme (revealed at the end of the programme) and the "savor a moment" clips. These files are stored with our hosting provider (Zurich region), protected by the same access controls as the rest of your data, never transcribed or analyzed, playable only by you, and deleted with your account (savoring clips are additionally deleted at the end of their weekly replay window).
+
+2.7 Taking part in scientific research (optional)
+The App invites you to contribute to research on digital wellbeing tools. Taking part is entirely optional: declining has no effect on your coaching, and you can change your mind at any time in Settings > Scientific research.
+If you accept, the following data is used for that purpose: the age range, gender and country you provide (each of these fields may be left unanswered), your WHO-5 wellbeing scores, and App usage metrics. The content of your sessions, your transcripts, your name and your email address are never shared. Since 28 July 2026 these three fields serve research only: they no longer play any part in personalising your coaching.
+This data is pseudonymised, not anonymous: researchers only ever see a pseudonym, but on our side that pseudonym can still be linked back to your account. We do not claim otherwise, because the difference matters for your rights: pseudonymised data is still personal data, and every right described in section 6 continues to apply to it.
+Legal basis: your explicit consent to the processing of health data (Article 9(2)(a) GDPR), collected separately from the rest of the App and never imposed as a condition for accessing a service (Article 7(4)).
+Rectification: you can review and correct your answers at any time via Settings > Scientific research > Review my answers (Article 16 GDPR). Correcting an answer does not change your consent.
+Withdrawal: you can withdraw your consent at any time, without having to justify yourself and as easily as you gave it (Article 7(3)). Your future contributions stop immediately. Data already collected before withdrawal may be retained for the legal duration of the study under Article 17(3)(e) GDPR, so that research work already under way remains verifiable.
+Retention: in the current version of the App, this data is deleted along with your account. Should a research protocol agreed with an academic partner ever require longer retention, you would be told explicitly through a revised version of this policy, and your consent would be asked again.
 
 3. Why we use your data
 Purpose

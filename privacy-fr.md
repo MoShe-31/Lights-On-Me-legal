@@ -1,5 +1,5 @@
 Politique de Confidentialité — Lights On Me
-Dernière mise à jour : 28 juillet 2026
+Dernière mise à jour : 31 juillet 2026
 
 1. Qui sommes-nous
 L'application Lights On Me (ci-après "l'Application") est éditée à titre individuel par :
@@ -35,6 +35,15 @@ L'Application est en phase bêta privée. Elle propose un accompagnement vocal p
 2.6 Enregistrements audio
 Les enregistrements de vos sessions vocales (séances, cap du jour, expression libre) sont transmis temporairement pour transcription, puis immédiatement supprimés une fois le texte obtenu : ils ne sont jamais conservés.
 Deux fonctionnalités optionnelles conservent en revanche un fichier audio, parce que leur valeur est de réentendre votre propre voix : la lettre vocale que vous vous adressez au début d'un programme (révélée à la fin du programme) et les clips « savourer un moment ». Ces fichiers sont stockés chez notre hébergeur (région Zurich), protégés par les mêmes contrôles d'accès que le reste de vos données, jamais transcrits ni analysés, réécoutables par vous seul(e), et supprimés avec votre compte (les clips de savoring sont en outre supprimés à l'issue de leur fenêtre de réécoute hebdomadaire).
+
+2.7 Participation à la recherche scientifique (optionnelle)
+L'Application vous propose de contribuer à la recherche sur les outils numériques de bien-être. Cette participation est entièrement facultative : la refuser n'a aucun effet sur votre accompagnement, et vous pouvez changer d'avis à tout moment dans Paramètres > Recherche scientifique.
+Si vous acceptez, les données suivantes sont utilisées à cette fin : la tranche d'âge, le genre et le pays que vous renseignez (chacun de ces champs peut rester sans réponse), vos scores de bien-être WHO-5, et des métriques d'usage de l'Application. Le contenu de vos séances, vos transcriptions, votre nom et votre adresse e-mail ne sont jamais partagés. Depuis le 28 juillet 2026, ces trois champs servent uniquement à la recherche : ils n'interviennent plus dans la personnalisation de votre accompagnement.
+Ces données sont pseudonymisées, et non anonymes : les chercheurs ne voient qu'un pseudonyme, mais celui-ci reste rattachable à votre compte de notre côté. Nous ne prétendons pas le contraire, parce que la différence a des conséquences sur vos droits : des données pseudonymisées restent des données personnelles, et tous les droits décrits à la section 6 continuent de s'y appliquer.
+Base légale : votre consentement explicite au traitement de données concernant la santé (article 9, paragraphe 2, point a) du RGPD), recueilli séparément du reste de l'Application et jamais imposé comme condition d'accès à un service (article 7, paragraphe 4).
+Rectification : vous pouvez revoir et corriger vos réponses à tout moment via Paramètres > Recherche scientifique > Revoir mes réponses (article 16 du RGPD). Corriger une réponse ne modifie pas votre consentement.
+Retrait : vous pouvez retirer votre consentement à tout moment, sans avoir à vous justifier et aussi simplement que vous l'avez donné (article 7, paragraphe 3). Vos contributions futures cessent immédiatement. Les données déjà collectées avant le retrait peuvent être conservées pour la durée légale de l'étude au titre de l'article 17, paragraphe 3, point e) du RGPD, afin que des travaux de recherche déjà engagés restent vérifiables.
+Conservation : dans la version actuelle de l'Application, ces données sont supprimées avec votre compte. Si un protocole de recherche conclu avec un partenaire académique devait imposer une conservation plus longue, cela vous serait annoncé explicitement par une version révisée de la présente politique, et votre consentement serait redemandé.
 
 3. À quoi servent vos données
 Finalité
