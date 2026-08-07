@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta name="robots" content="noindex, nofollow">
+<title>Vérification</title>
+<!--
+  turnstile.html — page hébergée du widget Cloudflare Turnstile (2026-08-07).
+
+  POURQUOI cette page existe : l'app (React Native) affichait le widget via du
+  HTML inline chargé avec loadDataWithBaseURL dans une WebView Android — un
+  montage sur lequel Turnstile peut rester MUET (origine considérée bancale).
+  Cette page donne au widget une vraie origine HTTPS (lightsonme.app, hostname
+  autorisé dans la config du widget Cloudflare) : la WebView de l'app charge
+  cette URL au lieu d'un HTML inline.
+
+  CONTRAT DE MESSAGES (identique à components/ConfirmTurnstile.tsx de l'app) :
+  window.ReactNativeWebView.postMessage reçoit soit le TOKEN, soit
+  'open' | 'expired' | 'error' | 'error|<raison>' | 'cancel'.
+  Hors app (navigateur normal), les événements s'affichent DANS la page
+  (bloc #status) pour permettre une vérification humaine directe.
+
+  Paramètres d'URL : ?sitekey=... (défaut : la site key publique de l'app)
+  &lang=fr &theme=light|dark &appearance=interaction-only|always
+-->
+<style>
+  html, body { margin: 0; padding: 0; background: #F7F1E5; height: 100%; font-family: -apple-system, system-ui, sans-serif; }
+  body { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 16px; }
+  #status { font-size: 12px; color: #666; max-width: 300px; text-align: center; word-break: break-all; }
+  .rn #status { display: none; }
+</style>
+</head>
+<body>
+<div id="cf-container"></div>
+<div id="status"></div>
+<script>
+  var qs = new URLSearchParams(location.search);
+  var sitekey = (qs.get('sitekey') || '0x4AAAAAAEIcBGdN4YAaP5Mf').replace(/[^0-9A-Za-z_-]/g, '');
+  var lang = (qs.get('lang') || 'fr').replace(/[^a-zA-Z-]/g, '');
+  var theme = qs.get('theme') === 'dark' ? 'dark' : 'light';
+  var appearance = qs.get('appearance') === 'always' ? 'always' : 'interaction-only';
+
+  var inApp = !!window.ReactNativeWebView;
+  if (inApp) document.body.className = 'rn';
+  function post(m) {
+    if (inApp) { window.ReactNativeWebView.postMessage(m); }
+    else {
+      var el = document.getElementById('status');
+      var line = document.createElement('div');
+      var shown = m;
+      if (m.length > 40 && m.indexOf('error') !== 0 && ['open', 'expired', 'cancel'].indexOf(m) === -1) {
+        shown = 'TOKEN reçu (' + m.length + ' caractères) : ' + m.slice(0, 24) + '…';
+      }
+      line.textContent = new Date().toISOString().slice(11, 19) + '  ' + shown;
+      el.appendChild(line);
+    }
+  }
+  window.onerror = function (msg) { post('error|js:' + String(msg).slice(0, 80)); };
+
+  var apiLoaded = false;
+  function _onloadTurnstile() {
+    apiLoaded = true;
+    try {
+      turnstile.render('#cf-container', {
+        sitekey: sitekey,
+        language: lang,
+        theme: theme,
+        appearance: appearance,
+        callback: function (token) { post(token); },
+        'expired-callback': function () { post('expired'); },
+        'error-callback': function (code) { post('error|' + (code || '')); },
+        'timeout-callback': function () { post('expired'); }
+      });
+      post('open');
+    } catch (e) {
+      post('error|render:' + String(e && e.message ? e.message : e).slice(0, 60));
+    }
+  }
+  setTimeout(function () { if (!apiLoaded) { post('error|api-load-timeout'); } }, 8000);
+
+  var s = document.createElement('script');
+  s.src = 'https://challenges.cloudflare.com/turnstile/v0/api.js?onload=_onloadTurnstile';
+  s.async = true;
+  s.defer = true;
+  s.onerror = function () { post('error|script-load-failed'); };
+  document.head.appendChild(s);
+</script>
+</body>
+</html>
