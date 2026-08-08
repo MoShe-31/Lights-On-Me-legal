@@ -46,7 +46,9 @@
   // Chrome pouvant bloquer une navigation auto vers un scheme custom).
   // Whitelist stricte du scheme pour ne pas devenir un open-redirector.
   var redirect = qs.get('redirect') || '';
-  if (!/^coachme:\/\/[A-Za-z0-9_\-\/]*$/.test(redirect)) redirect = '';
+  // coachme:// = builds ; exp:// = Expo Go (dev). Charset strict, jamais
+  // d'URL http(s) : cette page ne doit pas devenir un open-redirector.
+  if (!/^(coachme|exp):\/\/[A-Za-z0-9_\-\/.:%]*$/.test(redirect)) redirect = '';
 
   var inApp = !!window.ReactNativeWebView;
   if (inApp) document.body.className = 'rn';
