@@ -4,70 +4,108 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 <meta name="robots" content="noindex, nofollow">
-<title>Vérification</title>
+<title>Lights On Me</title>
 <!--
-  turnstile.html — page hébergée du widget Cloudflare Turnstile (2026-08-07).
+  turnstile.html — page hébergée du challenge Cloudflare Turnstile (v3).
 
-  POURQUOI cette page existe : l'app (React Native) affichait le widget via du
-  HTML inline chargé avec loadDataWithBaseURL dans une WebView Android — un
-  montage sur lequel Turnstile peut rester MUET (origine considérée bancale).
-  Cette page donne au widget une vraie origine HTTPS (lightsonme.app, hostname
-  autorisé dans la config du widget Cloudflare) : la WebView de l'app charge
-  cette URL au lieu d'un HTML inline.
+  POURQUOI cette page : Cloudflare refuse silencieusement d'exécuter son
+  challenge dans une WebView embarquée (prouvé aux sondes le 2026-08-08 :
+  iframe jamais créée, « Likely human 23% » au dashboard Turnstile). L'app
+  ouvre donc CETTE page dans le NAVIGATEUR SYSTÈME (openAuthSessionAsync)
+  et récupère le token par deep link. Ne jamais re-tenter le widget dans
+  une WebView.
 
-  CONTRAT DE MESSAGES (identique à components/ConfirmTurnstile.tsx de l'app) :
-  window.ReactNativeWebView.postMessage reçoit soit le TOKEN, soit
-  'open' | 'expired' | 'error' | 'error|<raison>' | 'cancel'.
-  Hors app (navigateur normal), les événements s'affichent DANS la page
-  (bloc #status) pour permettre une vérification humaine directe.
+  CONTRAT :
+  - navigateur (le mode réel) : ?redirect=coachme://... (build) ou
+    exp://... (Expo Go), whitelist stricte anti open-redirector ; après le
+    token → redirection auto + bouton de secours (Chrome peut bloquer une
+    navigation JS vers un scheme custom sans geste utilisateur).
+  - in-app (WebView historique, plus utilisée par l'app) : postMessage
+    token | 'open' | 'expired' | 'error' | 'error|<raison>'.
 
-  Paramètres d'URL : ?sitekey=... (défaut : la site key publique de l'app)
-  &lang=fr &theme=light|dark &appearance=interaction-only|always
+  Habillage premium (2026-08-08) : mêmes stacks de polices que la landing
+  (serif éditoriale + system sans), palette crème/caramel de l'app, logo,
+  copy ×6 langues via ?lang=, thème sombre via ?theme=dark.
+  Diagnostics visibles seulement avec ?debug=1.
 -->
 <style>
-  html, body { margin: 0; padding: 0; background: #F7F1E5; height: 100%; font-family: -apple-system, system-ui, sans-serif; }
-  body { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 16px; }
-  #status { font-size: 12px; color: #666; max-width: 300px; text-align: center; word-break: break-all; }
-  .rn #status { display: none; }
+  :root {
+    --bg: #F7F1E5; --text: #1A1A1A; --muted: #666666;
+    --brand: #C4956A;
+  }
+  .dark {
+    --bg: #221D15; --text: #F2EAD9; --muted: #B8AE9C;
+    --brand: #C4956A;
+  }
+  html, body { margin: 0; padding: 0; background: var(--bg); min-height: 100%; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    color: var(--text);
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    min-height: 100vh; padding: 24px; box-sizing: border-box; text-align: center;
+  }
+  .logo { width: 72px; height: 72px; border-radius: 18px; margin-bottom: 20px; }
+  h1 {
+    font-family: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, "Times New Roman", serif;
+    font-weight: 600; font-size: 26px; margin: 0 0 8px;
+  }
+  p.sub { font-size: 15px; color: var(--muted); margin: 0 0 28px; max-width: 300px; line-height: 1.45; }
+  #cf-container { min-height: 65px; }
+  .backlink {
+    display: inline-block; margin-top: 26px; padding: 14px 28px; border-radius: 999px;
+    background: var(--brand); color: #FFFFFF; font-size: 16px; font-weight: 600;
+    text-decoration: none;
+  }
+  .returning { margin-top: 22px; font-size: 14px; color: var(--muted); }
+  #status { margin-top: 18px; font-size: 11px; color: var(--muted); max-width: 320px; word-break: break-all; display: none; }
+  .debug #status { display: block; }
 </style>
 </head>
 <body>
+<img class="logo" src="/logo.png" alt="">
+<h1 id="t"></h1>
+<p class="sub" id="s"></p>
 <div id="cf-container"></div>
+<div id="after"></div>
 <div id="status"></div>
 <script>
   var qs = new URLSearchParams(location.search);
   var sitekey = (qs.get('sitekey') || '0x4AAAAAAEIcBGdN4YAaP5Mf').replace(/[^0-9A-Za-z_-]/g, '');
   var lang = (qs.get('lang') || 'fr').replace(/[^a-zA-Z-]/g, '');
   var theme = qs.get('theme') === 'dark' ? 'dark' : 'light';
-  var appearance = qs.get('appearance') === 'always' ? 'always' : 'interaction-only';
+  var appearance = qs.get('appearance') === 'interaction-only' ? 'interaction-only' : 'always';
+  if (theme === 'dark') document.documentElement.className = 'dark';
+  if (qs.get('debug') === '1') document.body.className = 'debug';
 
-  // Mode RETOUR APP (2026-08-08) : ?redirect=coachme://... — apres le token,
-  // la page renvoie vers l'app (window.location + bouton manuel de secours,
-  // Chrome pouvant bloquer une navigation auto vers un scheme custom).
-  // Whitelist stricte du scheme pour ne pas devenir un open-redirector.
-  var redirect = qs.get('redirect') || '';
+  // Copy ×6 (registre chaleureux de l'app, sans cadratin).
+  var COPY = {
+    fr: { t: 'Une seconde…', s: 'On vérifie juste que tu es bien humain, puis tu reviens dans l’app.', b: 'Revenir à Lights On Me', r: 'Retour vers l’app…' },
+    en: { t: 'One second…', s: 'A quick human check, then you’re back in the app.', b: 'Back to Lights On Me', r: 'Returning to the app…' },
+    es: { t: 'Un segundo…', s: 'Una comprobación rápida y vuelves a la app.', b: 'Volver a Lights On Me', r: 'Volviendo a la app…' },
+    de: { t: 'Eine Sekunde…', s: 'Eine kurze Prüfung, dann geht es zurück in die App.', b: 'Zurück zu Lights On Me', r: 'Zurück zur App…' },
+    it: { t: 'Un secondo…', s: 'Una verifica rapida e torni nell’app.', b: 'Torna a Lights On Me', r: 'Ritorno all’app…' },
+    pt: { t: 'Um segundo…', s: 'Uma verificação rápida e voltas à app.', b: 'Voltar ao Lights On Me', r: 'A voltar à app…' }
+  };
+  var L = COPY[lang.slice(0, 2)] || COPY.fr;
+  document.getElementById('t').textContent = L.t;
+  document.getElementById('s').textContent = L.s;
+
   // coachme:// = builds ; exp:// = Expo Go (dev). Charset strict, jamais
   // d'URL http(s) : cette page ne doit pas devenir un open-redirector.
+  var redirect = qs.get('redirect') || '';
   if (!/^(coachme|exp):\/\/[A-Za-z0-9_\-\/.:%]*$/.test(redirect)) redirect = '';
 
   var inApp = !!window.ReactNativeWebView;
-  if (inApp) document.body.className = 'rn';
-  // Sondes de debug (2026-08-08) : prefixe 'debug|' — l'app les logge sans les
-  // transmettre aux dispatchers (voir ConfirmTurnstile.onMessage).
-  function dbg(m) { post('debug|' + m); }
   function post(m) {
     if (inApp) { window.ReactNativeWebView.postMessage(m); }
     else {
       var el = document.getElementById('status');
       var line = document.createElement('div');
-      var shown = m;
-      if (m.length > 40 && m.indexOf('error') !== 0 && ['open', 'expired', 'cancel'].indexOf(m) === -1) {
-        shown = 'TOKEN reçu (' + m.length + ' caractères) : ' + m.slice(0, 24) + '…';
-      }
-      line.textContent = new Date().toISOString().slice(11, 19) + '  ' + shown;
+      line.textContent = new Date().toISOString().slice(11, 19) + '  ' + (m.length > 60 ? m.slice(0, 40) + '… (' + m.length + ' car.)' : m);
       el.appendChild(line);
     }
   }
+  function dbg(m) { post('debug|' + m); }
   window.onerror = function (msg) { post('error|js:' + String(msg).slice(0, 80)); };
 
   var apiLoaded = false;
@@ -83,11 +121,16 @@
           post(token);
           if (redirect) {
             var target = redirect + '?token=' + encodeURIComponent(token);
+            var after = document.getElementById('after');
+            var r = document.createElement('p');
+            r.className = 'returning';
+            r.textContent = L.r;
+            after.appendChild(r);
             var a = document.createElement('a');
             a.href = target;
-            a.textContent = 'Revenir a Lights On Me';
-            a.style.cssText = 'display:block;margin-top:18px;font-size:18px;color:#7A5F3B;font-weight:600;text-align:center;';
-            document.body.appendChild(a);
+            a.className = 'backlink';
+            a.textContent = L.b;
+            after.appendChild(a);
             window.location.href = target;
           }
         },
@@ -97,10 +140,6 @@
       });
       post('open');
       dbg('ua:' + navigator.userAgent.slice(0, 110));
-      setTimeout(function () {
-        var f = document.querySelector('#cf-container iframe');
-        dbg(f ? 'iframe:' + f.offsetWidth + 'x' + f.offsetHeight + ' src:' + (f.src || '').slice(0, 60) : 'iframe:ABSENT');
-      }, 3000);
     } catch (e) {
       post('error|render:' + String(e && e.message ? e.message : e).slice(0, 60));
     }
