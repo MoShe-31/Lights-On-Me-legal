@@ -41,6 +41,13 @@
   var theme = qs.get('theme') === 'dark' ? 'dark' : 'light';
   var appearance = qs.get('appearance') === 'always' ? 'always' : 'interaction-only';
 
+  // Mode RETOUR APP (2026-08-08) : ?redirect=coachme://... — apres le token,
+  // la page renvoie vers l'app (window.location + bouton manuel de secours,
+  // Chrome pouvant bloquer une navigation auto vers un scheme custom).
+  // Whitelist stricte du scheme pour ne pas devenir un open-redirector.
+  var redirect = qs.get('redirect') || '';
+  if (!/^coachme:\/\/[A-Za-z0-9_\-\/]*$/.test(redirect)) redirect = '';
+
   var inApp = !!window.ReactNativeWebView;
   if (inApp) document.body.className = 'rn';
   // Sondes de debug (2026-08-08) : prefixe 'debug|' — l'app les logge sans les
@@ -70,7 +77,18 @@
         language: lang,
         theme: theme,
         appearance: appearance,
-        callback: function (token) { post(token); },
+        callback: function (token) {
+          post(token);
+          if (redirect) {
+            var target = redirect + '?token=' + encodeURIComponent(token);
+            var a = document.createElement('a');
+            a.href = target;
+            a.textContent = 'Revenir a Lights On Me';
+            a.style.cssText = 'display:block;margin-top:18px;font-size:18px;color:#7A5F3B;font-weight:600;text-align:center;';
+            document.body.appendChild(a);
+            window.location.href = target;
+          }
+        },
         'expired-callback': function () { post('expired'); },
         'error-callback': function (code) { post('error|' + (code || '')); },
         'timeout-callback': function () { post('expired'); }
