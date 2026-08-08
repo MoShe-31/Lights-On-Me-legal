@@ -43,6 +43,9 @@
 
   var inApp = !!window.ReactNativeWebView;
   if (inApp) document.body.className = 'rn';
+  // Sondes de debug (2026-08-08) : prefixe 'debug|' — l'app les logge sans les
+  // transmettre aux dispatchers (voir ConfirmTurnstile.onMessage).
+  function dbg(m) { post('debug|' + m); }
   function post(m) {
     if (inApp) { window.ReactNativeWebView.postMessage(m); }
     else {
@@ -73,6 +76,11 @@
         'timeout-callback': function () { post('expired'); }
       });
       post('open');
+      dbg('ua:' + navigator.userAgent.slice(0, 110));
+      setTimeout(function () {
+        var f = document.querySelector('#cf-container iframe');
+        dbg(f ? 'iframe:' + f.offsetWidth + 'x' + f.offsetHeight + ' src:' + (f.src || '').slice(0, 60) : 'iframe:ABSENT');
+      }, 3000);
     } catch (e) {
       post('error|render:' + String(e && e.message ? e.message : e).slice(0, 60));
     }
