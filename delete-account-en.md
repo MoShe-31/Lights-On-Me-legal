@@ -30,7 +30,6 @@ All data linked to your account is erased immediately and permanently:
 - Profile and onboarding answers
 - Sessions, transcripts and coach feedback
 - Personal journals (daily good things, gratitudes)
-- Wellbeing assessments (WHO-5)
 - Retained audio files (voice letter, "savor a moment" clips)
 - Summaries, dynamic profile, usage statistics
 

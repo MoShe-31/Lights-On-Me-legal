@@ -30,7 +30,7 @@ Lights On Me propose à l'Utilisateur :
 
 - Des **séances vocales de réflexion personnelle** guidées par une IA de coaching.
 - Des **programmes thématiques** de 30 jours sur différents axes de développement personnel (gestion du stress, confiance en soi, relations, etc.).
-- Un **historique personnel** des séances et des évaluations de bien-être (questionnaires WHO-5).
+- Un **historique personnel** des séances.
 - Des **suggestions et recommandations** générées par l'IA.
 
 ## 5. Nature du Service — Limites importantes

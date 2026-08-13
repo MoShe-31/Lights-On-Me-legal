@@ -30,7 +30,6 @@ Toutes les données liées à votre compte sont effacées immédiatement et déf
 - Profil et réponses d'onboarding
 - Sessions, transcriptions et retours du coach
 - Journaux personnels (bonnes choses du jour, gratitudes)
-- Évaluations de bien-être (WHO-5)
 - Fichiers audio conservés (lettre vocale, clips « savourer un moment »)
 - Résumés, profil dynamique, statistiques d'usage
 
